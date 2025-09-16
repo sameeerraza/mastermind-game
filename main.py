@@ -1,3 +1,4 @@
+from typing import List
 from config import TRIES, CODE_LENGTH
 from game_logic import generate_code, check_code
 from user_interface import (
@@ -9,12 +10,14 @@ from user_interface import (
 )
 
 
-def play_game():
+def play_game() -> None:
     display_welcome()
-    code = generate_code()
+    code: List[str] = generate_code()
     
     for attempts in range(1, TRIES + 1):
-        guess = get_user_guess()
+        guess: List[str] = get_user_guess()
+        correct_pos: int
+        incorrect_pos: int
         correct_pos, incorrect_pos = check_code(guess, code)
         
         if correct_pos == CODE_LENGTH:

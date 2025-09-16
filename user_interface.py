@@ -1,12 +1,13 @@
+from typing import List
 from config import COLORS, CODE_LENGTH, TRIES
 
 
-def display_welcome():
+def display_welcome() -> None:
     print(f"Welcome to Mastermind, you have {TRIES} tries to guess the code...")
     print("The valid colors are", *COLORS)
 
 
-def get_user_guess():
+def get_user_guess() -> List[str]:
     while True:
         guess = input("Guess: ").upper().split(" ")
 
@@ -24,13 +25,13 @@ def get_user_guess():
     return guess
 
 
-def display_result(correct_pos, incorrect_pos):
+def display_result(correct_pos: int, incorrect_pos: int) -> None:
     print(f"Correct positions: {correct_pos} | Incorrect positions: {incorrect_pos}")
 
 
-def display_win(attempts):
+def display_win(attempts: int) -> None:
     print(f"You guessed the code in {attempts} tries!")
 
 
-def display_game_over(code):
+def display_game_over(code: List[str]) -> None:
     print(f"You've used all your tries. The code was:", *code)

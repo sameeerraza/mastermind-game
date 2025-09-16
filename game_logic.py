@@ -1,7 +1,8 @@
 import random
+from typing import List, Tuple
 from config import COLORS, CODE_LENGTH
 
-def generate_code():
+def generate_code() -> List[str]:
     code = []
 
     for _ in range(CODE_LENGTH):
@@ -11,7 +12,7 @@ def generate_code():
     return code
 
 
-def check_code(guess, real_code):
+def check_code(guess: List[str], real_code: List[str]) -> Tuple[int, int]:
     color_counts = {}
     correct_pos = 0
     incorrect_pos = 0
